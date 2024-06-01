@@ -44,6 +44,6 @@ export default defineNuxtModule<ModuleOptions>({
       handler: resolve('./runtime/server/api/generate/[document].post')
     })
 
-    addPlugin(resolve("./runtime/my-components-plugin"))
+    addPlugin(resolve("./runtime/husqpdf-ui-plugin"))
   },
 })
