@@ -1,5 +1,16 @@
 export default defineNuxtConfig({
   modules: ['../src/module'],
-  myModule: {},
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+  vite: {
+    build: {
+      target: ['es2022'],
+    },
+  },
+  nitro: {
+    esbuild: {
+      options: {
+        target: 'es2022',
+      },
+    },
+  },
 })

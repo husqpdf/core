@@ -1,4 +1,12 @@
-import {addComponent, addLayout, addPlugin, addServerHandler, createResolver, defineNuxtModule} from '@nuxt/kit'
+import {
+  addComponent,
+  addImports,
+  addLayout,
+  addPlugin,
+  addServerHandler,
+  createResolver,
+  defineNuxtModule
+} from '@nuxt/kit'
 
 export interface ModuleOptions {}
 
@@ -21,6 +29,10 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.vite.optimizeDeps.esbuildOptions ||= {}
     nuxt.options.vite.optimizeDeps.esbuildOptions.target = "esnext"
 
+    nuxt.options.nitro.esbuild ||= {}
+    nuxt.options.nitro.esbuild.options ||= {}
+    nuxt.options.nitro.esbuild.options.target = "esnext"
+
     // add css from @husqpdf/ui lib
     nuxt.options.css.push("@husqpdf/ui/dist/style.css")
 
@@ -37,6 +49,11 @@ export default defineNuxtModule<ModuleOptions>({
     addComponent({
       name: "HusqpdfRoot",
       filePath: resolve("./runtime/components/HusqpdfRoot.vue")
+    })
+
+    addImports({
+      name: 'usePageData',
+      from: resolve('runtime/composables/usePageData.ts')
     })
 
     addServerHandler({

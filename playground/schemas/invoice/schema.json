@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "invoiceNr": {
+      "type": "integer"
+    },
+    "invoiceDate": {
+      "type": "string"
+    },
+    "totalPrice": {
+      "type": "integer"
+    },
+    "items": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "artNr": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "integer"
+            },
+            "price": {
+              "type": "integer"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
