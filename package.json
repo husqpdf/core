@@ -34,7 +34,6 @@
     "install-components": "npm i ./my-components-0.0.0.tgz && cd playground && npm i ../my-components-0.0.0.tgz"
   },
   "dependencies": {
-    "@husqpdf/ui": "^0.0.4",
     "@nuxt/kit": "^3.11.2",
     "puppeteer": "^22.10.0",
     "qs": "^6.12.1"

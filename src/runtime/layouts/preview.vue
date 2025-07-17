@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {useAsyncData, useRoute} from "#imports";
+
 const route = useRoute()
 
 function arrayBufferToBase64(buffer: ArrayBuffer) {
@@ -18,12 +19,13 @@ function getCurrentDocument() {
 
 const { pending, data } = useAsyncData("pdf-preview", async () => {
   const document = getCurrentDocument()
-  const pageData = route.query
   const pdfGenUrl = "http://localhost:3000/api/generate/" + document
+  const key = `__hqpdf_page_state_` + document
+  const pageData = localStorage.getItem(key) || "{}"
 
   const response = await fetch(pdfGenUrl, {
     method: "POST",
-    body: JSON.stringify(pageData),
+    body: pageData,
     headers: {
       "Content-Type": "application/json",
     },

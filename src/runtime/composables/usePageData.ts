@@ -1,7 +1,8 @@
 import {useRoute} from "#imports";
-import { parseQuery } from "../utils/parseQuery"
 
 export function usePageData<T>(): T {
   const route = useRoute()
-  return parseQuery(route.query) as T
+  const currentDocument =  route.path.split("/").filter(Boolean).pop();
+  const key = `__hqpdf_page_state_${currentDocument}`
+  return JSON.parse(localStorage.getItem(key) || "{}") as T;
 }

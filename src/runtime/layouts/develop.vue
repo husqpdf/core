@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import {refreshNuxtData, useRoute} from "#imports";
-import {watchDebounced} from "@vueuse/shared";
+
+import {refreshNuxtData} from "#imports";
 
 let schema: any;
-const route = useRoute()
 
 try {
   const response = await fetch("schema.json")
@@ -12,15 +11,13 @@ try {
   schema = {}
 }
 
-watchDebounced(() => route.fullPath, refresh, { debounce: 750 });
-
-function refresh() {
-  refreshNuxtData("pdf-preview");
+const onStateChanged = () => {
+  refreshNuxtData("pdf-preview")
 }
 </script>
 
 <template>
-  <husq-dev-layout :schema="schema">
+  <husq-dev-layout :schema="schema" @onstatechange="onStateChanged">
     <nuxt-layout name="preview">
       <slot />
     </nuxt-layout>

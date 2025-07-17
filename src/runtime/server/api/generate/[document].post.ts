@@ -1,12 +1,4 @@
-import {
-  defineEventHandler,
-  getRouterParam,
-  setResponseStatus,
-  setResponseHeaders,
-  readBody,
-  send
-} from "h3";
-import {toQueryString} from "../../utils/toQueryString";
+import {defineEventHandler, getRouterParam, readBody, send, setResponseHeaders, setResponseStatus} from "h3";
 import {generatePdf} from "../../utils/generatePdf";
 
 export default defineEventHandler(async (event) => {
@@ -18,9 +10,11 @@ export default defineEventHandler(async (event) => {
          setResponseStatus(event, 400);
          return { error: "document name is required" };
       }
-      const documentPath = `http://localhost:3000/${document}?${toQueryString(body)}`;
 
-      const pdfBuffer = await generatePdf(documentPath);
+      const pdfBuffer = await generatePdf({
+        doc: document,
+        data: body
+      });
 
       setResponseHeaders(event, {
          "Content-Type": "application/pdf",
