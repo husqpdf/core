@@ -1,2 +1,2 @@
-declare module "puppeteer"
-declare module "qs"
+declare module 'puppeteer'
+declare module 'qs'

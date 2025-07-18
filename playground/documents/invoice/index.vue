@@ -4,7 +4,10 @@ const pageData: any = usePageData()
 
 <template>
   <div class="page">
-    <img src="https://cdn.prod.website-files.com/619774fe2dd7c8476a3cc0ec/625913b925c635170b66aba1_Objectbay.svg" class="logo" />
+    <img
+      src="https://cdn.prod.website-files.com/619774fe2dd7c8476a3cc0ec/625913b925c635170b66aba1_Objectbay.svg"
+      class="logo"
+    >
 
     <div class="info">
       <h1>Invoice {{ pageData.invoiceNr }}</h1>
@@ -18,13 +21,18 @@ const pageData: any = usePageData()
       <span>Betrag</span>
     </div>
 
-    <div v-for="item in pageData.items" class="item">
+    <div
+      v-for="item in pageData.items"
+      class="item"
+    >
       <span>{{ item.artNr }}</span>
       <span>{{ item.name }}</span>
       <span>{{ item.amount }} Stück</span>
       <span>{{ item.price }} EUR</span>
     </div>
-    <p class="total">Total: {{ pageData.totalPrice }} EUR</p>
+    <p class="total">
+      Total: {{ pageData.totalPrice }} EUR
+    </p>
   </div>
 </template>
 

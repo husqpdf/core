@@ -1,6 +1,7 @@
 <script setup lang="ts">
-  import {useLayoutMode} from "@husqpdf/ui";
-  const layout = useLayoutMode()
+import { useLayoutMode } from '@husqpdf/ui'
+
+const layout = useLayoutMode()
 </script>
 
 <template>
