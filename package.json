@@ -1,7 +1,7 @@
 {
   "name": "@husqpdf/core",
   "description": "This package provides the nuxt module for developing husqpdf",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "private": false,
   "license": "MIT",
   "type": "module",
